@@ -1,7 +1,12 @@
 export type DocumentItem = { title: string; description: string; format: string; href: string; index: string; action: string }
 export type TeamMember = { name: string; role: string; link: string }
+const projectLinks = {
+  project: 'https://gitcantcommitnasa-web-1qpt.vercel.app/',
+  demonstration: 'https://canva.link/gitcantcommit-moonward-demonstration',
+}
 
 export const siteContent = {
+  links: projectLinks,
   project: {
     name: 'Moonward',
     challenge: 'NASA Space Apps Challenge 2026',
@@ -28,8 +33,8 @@ export const siteContent = {
     kicker: 'Our solution',
     title: 'Make the cause of a change visible.',
     body: 'Moonward turns a complex planning question into a focused comparison experience. Choose a site. Change the landing time. See how the Sun and Earth move against the local horizon. Then make a clear, evidence-based plan — including what the available data cannot yet prove.',
-    demoLabel: 'Browser prototype / placeholder',
-    demoNote: 'Replace with the live Godot web build or walkthrough video.',
+    demoLabel: 'Moonward browser experience',
+    demoNote: 'Open the project or watch the demonstration.',
   },
   howItWorks: [
     { label: '01', title: 'Choose a mission objective', body: 'Start with a practical question: can the plan provide a continuous sunlight interval, create a nominal Earth-visibility opportunity, or simply help inspect the available evidence?' },
@@ -45,9 +50,9 @@ export const siteContent = {
     { label: 'Free Explore', body: 'An optional way to inspect registered lunar surface contexts and experience the scale of the environment without changing the scientific assessment origin.' },
   ],
   missions: [
-    { title: 'Science Outpost', subtitle: 'Catch the Light', body: 'Compare site and touchdown-time options for a continuous sunlight objective. Learn how a small change in location or time can affect the length and continuity of an illuminated interval.' },
-    { title: 'Sunset Operations', subtitle: 'After the Sun', body: 'Plan a six-hour activity window that crosses a change in lunar light conditions. Recognize the transition and explain why the available geometry is not enough to certify electrical endurance.' },
-    { title: 'Earth Link', subtitle: 'Hello, Earth?', body: 'Search for a nominal continuous Earth-centre-visible opportunity inside a mission plan. Separate geometric visibility from the engineering evidence needed to prove a communications link.' },
+    { title: 'Science Outpost', subtitle: 'Catch the Light', body: 'Compare site and touchdown-time options for a continuous sunlight objective. Learn how a small change in location or time can affect the length and continuity of an illuminated interval.', image: '/missions/science-outpost.png', imageAlt: 'Moonward Science Outpost mission screen with the Moon and launch objective' },
+    { title: 'Sunset Operations', subtitle: 'After the Sun', body: 'Plan a six-hour activity window that crosses a change in lunar light conditions. Recognize the transition and explain why the available geometry is not enough to certify electrical endurance.', image: '/missions/sunset-operations.png', imageAlt: 'Moonward Sunset Operations mission screen with the Moon and planning objective' },
+    { title: 'Earth Link', subtitle: 'Hello, Earth?', body: 'Search for a nominal continuous Earth-centre-visible opportunity inside a mission plan. Separate geometric visibility from the engineering evidence needed to prove a communications link.', image: null, imageAlt: null },
   ],
   evidence: {
     kicker: 'Read the model carefully',
@@ -56,15 +61,12 @@ export const siteContent = {
     cannotClaim: 'Moonward does not certify landing safety, battery survival, solar-array output, thermal performance, or radio reception. Earth visibility is a geometric observation, not a communications link budget.',
   },
   documents: [
-    { index: '01', title: 'Play the experience', description: 'Open the browser build and try Navigator, Quick Expeditions, Horizon Lens, and Free Explore.', format: 'Action', href: '#demo', action: 'Play Moonward' },
+    { index: '01', title: 'Play the experience', description: 'Open the browser build and try Navigator, Quick Expeditions, Horizon Lens, and Free Explore.', format: 'Website', href: projectLinks.project, action: 'Play Moonward' },
     { index: '02', title: 'Project brief', description: 'Product goals, challenge alignment, game structure, and MVP scope behind the experience.', format: 'PDF / placeholder', href: '#', action: 'Read the brief' },
     { index: '03', title: 'Science and validation', description: 'Sun and Earth positions, local skylines, terrain, intervals, and known limitations.', format: 'PDF / placeholder', href: '#', action: 'View validation' },
     { index: '04', title: 'Game design', description: 'The player loop, mission objectives, comparison board, evidence briefs, and learning expeditions.', format: 'PDF / placeholder', href: '#', action: 'Read game design' },
     { index: '05', title: 'Data sources and credits', description: 'Data provenance, software credits, supporting references, and validation notes.', format: 'PDF / placeholder', href: '#credits', action: 'View credits' },
-    { index: '06', title: 'Walkthrough', description: 'One site-and-date comparison from the first choice to the final evidence brief.', format: 'Video / placeholder', href: '#demo', action: 'View walkthrough' },
-    { index: '07', title: 'What Moonward can show', description: 'The modeled geometry and evidence available inside the current data window.', format: 'Guide / placeholder', href: '#evidence', action: 'Read the guide' },
-    { index: '08', title: 'What remains unknown', description: 'The limits of the model and the additional engineering evidence a stronger claim would need.', format: 'Guide / placeholder', href: '#evidence', action: 'Read the limits' },
-    { index: '09', title: 'Mission scenarios', description: 'Educational objectives for Catch the Light, After the Sun, and Hello, Earth?', format: 'Guide / placeholder', href: '#game-modes', action: 'See missions' },
+    { index: '06', title: 'Walkthrough', description: 'Watch the Moonward project demonstration.', format: 'Demonstration', href: projectLinks.demonstration, action: 'Watch demonstration' },
   ] satisfies DocumentItem[],
   credits: {
     teamName: 'Moonward / Sunline',
@@ -72,7 +74,8 @@ export const siteContent = {
     data: 'JPL Horizons-derived Sun and Earth ephemeris data; lunar topography and terrain information informed by NASA LOLA data; local skyline and horizon calculations for curated lunar sites.',
     technology: 'Godot 4 and Web Compatibility export for the browser experience.',
     links: [
-      { label: 'Project source / placeholder', href: '#' },
+      { label: 'Project website', href: projectLinks.project },
+      { label: 'Project demonstration', href: projectLinks.demonstration },
       { label: 'Validation notes / placeholder', href: '#' },
       { label: 'NASA Space Apps', href: '#' },
     ],
